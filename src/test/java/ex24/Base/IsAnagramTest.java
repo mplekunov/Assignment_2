@@ -3,7 +3,7 @@
  *  Copyright 2021 Mikhail Plekunov
  */
 
-package ex24;
+package ex24.Base;
 
 import ex24.Base.Anagram;
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MainTest {
+public class IsAnagramTest {
     @Test
     @DisplayName("IsAnagram method should return true")
     public void test_IsAnagram_returns_true() {
