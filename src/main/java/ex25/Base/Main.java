@@ -11,8 +11,7 @@ public class Main {
     public static void main(String[] args) {
         String password = readInput("Enter password that you would like to validate: ");
 
-
-
+        output(new Password(password));
     }
 
     public static String readInput(String promptToUser) {
