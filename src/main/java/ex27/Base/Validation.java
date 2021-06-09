@@ -1,9 +1,11 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex27.Base;
 
 import org.javatuples.Pair;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Validation {
     private String firstName;
@@ -47,6 +49,8 @@ public class Validation {
             result = result.concat("There were no errors found.\n");
             inputFlag = InputFlags.CORRECT_FORMAT;
         }
+        else
+            inputFlag = InputFlags.INCORRECT_FORMAT;
 
         return new Pair<>(result, inputFlag);
     }
