@@ -5,7 +5,6 @@
 
 package ex24.Base;
 
-import ex24.Base.Anagram;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

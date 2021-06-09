@@ -10,6 +10,7 @@ public final class PaymentCalculator {
 
     public static int calculateMonthsUntilPaidOff(double balance, int APR, double monthlyPayment) {
         return (int)Math.ceil(-(1/30.0) *
-                Math.log(1 + balance/monthlyPayment * (1 - Math.pow(1 + (APR / 100.0) / 365.0, 30))) / Math.log(1 + (APR / 100.0) / 365.0));
+                Math.log(1 + balance/monthlyPayment * (1 - Math.pow(1 + (APR / 100.0) / 365.0, 30)))
+                / Math.log(1 + (APR / 100.0) / 365.0));
     }
 }
