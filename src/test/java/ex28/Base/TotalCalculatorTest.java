@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex28.Base;
 
 import org.jetbrains.annotations.NotNull;
@@ -27,7 +32,7 @@ class TotalCalculatorTest {
         //From 3 inputs, only two should be used in calculation
         getInput("1\n" +
                 "2\n" +
-                "3");
+                "3\n");
 
         double total = TotalCalculator.calculateTotal(2, "");
         assertEquals(3, total);
@@ -37,10 +42,10 @@ class TotalCalculatorTest {
     @DisplayName("calculateTotal ignores non-numeric values according to constraints")
     void calculateTotal_Ignore_Non_Numeric_Values() {
         //inputs
-        getInput("1");
+        getInput("1\n");
 
         double total = TotalCalculator.calculateTotal(1, "");
-        assertEquals(2, total);
+        assertEquals(1, total);
     }
 
     @Test
