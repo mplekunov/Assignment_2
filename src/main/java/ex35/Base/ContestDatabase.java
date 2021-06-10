@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ContestDatabase {
-    private ArrayList<Contestant> contestants;
+    private final ArrayList<Contestant> contestants;
 
     public ContestDatabase() {
         contestants = new ArrayList<>();
