@@ -11,11 +11,16 @@ public final class Contest {
     private Contest() {}
 
     public static Contestant drawWinner(ContestDatabase contestDB) {
+        Contestant contestant;
+
         try {
-            return contestDB.findContestant(ThreadLocalRandom.current().nextInt(0, contestDB.getContestantDBSize()));
+            contestant = contestDB.findContestant(ThreadLocalRandom.current().nextInt(0, contestDB.getContestantDBSize()));
         } catch (IllegalArgumentException iae) {
             //When there are no contestants in the contestDB
             return null;
         }
+
+        contestDB.removeContestant(contestant);
+        return contestant;
     }
 }
