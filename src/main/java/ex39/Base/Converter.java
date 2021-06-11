@@ -1,16 +1,16 @@
 package ex39.Base;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public final class Converter {
     private Converter() {}
 
-    public static Date convertStringToDate(String date, String dateFormat) {
+    public static LocalDate convertStringToDate(String date, String dateFormat) {
         try {
-            return new SimpleDateFormat(dateFormat).parse(date);
-        } catch (ParseException pe) {
+            return LocalDate.parse(date, DateTimeFormatter.ofPattern(dateFormat));
+        } catch (DateTimeParseException dtp) {
             return null;
         }
     }

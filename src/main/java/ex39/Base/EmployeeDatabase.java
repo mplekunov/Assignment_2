@@ -1,44 +1,45 @@
 package ex39.Base;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EmployeeDatabase {
-    private final ArrayList<Employee> employees;
+    private final ArrayList<HashMap<Type, String>> employees;
 
     public EmployeeDatabase() {
         employees = new ArrayList<>();
     }
 
-    public EmployeeDatabase(List<Employee> employees) {
+    public EmployeeDatabase(List<HashMap<Type, String>> employees) {
         this();
         this.employees.addAll(employees);
     }
 
-    public List<Employee> sortDatabase(SortingType sortingType) {
-        List<Employee> employees = new ArrayList<>();
-
-        switch (sortingType){
-            case LAST_NAME -> employees = sortByLastName();
-//            case POSITION -> sortByPosition();
-//            case SEPARATION_DATE -> sortBySeparationDate();
-        }
-
-        return employees;
+    public List<HashMap<Type, String>> sortBy(Type type) {
+        return employees.stream()
+                .sorted(Comparator.comparing(o -> o.get(type)))
+                .collect(Collectors.toList());
     }
 
-//    private List<Employee> sortByPosition() {
-//    }
-
-    private List<Employee> sortByLastName() {
-        return employees.stream().sorted(Comparator.comparing(Employee::getLastName)).collect(Collectors.toList());
+    public List<HashMap<Type, String>> findBy(Type type, String input) {
+        if (type.equals(Type.SEPARATION_DATE))
+            return findByDate(input);
+        else
+            return employees.stream()
+                .filter(o -> o.get(type).toLowerCase(Locale.ROOT).contains(input.toLowerCase(Locale.ROOT)))
+                .collect(Collectors.toList());
     }
 
-//    private List<Employee> sortBySeparationDate() {
-//
-//    }
+    private List<HashMap<Type, String>> findByDate(String input) {
+        LocalDate now = LocalDate.now().minusMonths(Integer.parseInt(input));
+
+        return employees.stream()
+                .filter(o -> {
+                    LocalDate oDate = Converter.convertStringToDate(o.get(Type.SEPARATION_DATE), "yyyy-MM-dd");
+                    return oDate != null && (now.isAfter(oDate) || now.isEqual(oDate));
+                }).collect(Collectors.toList());
+    }
 
 
 }

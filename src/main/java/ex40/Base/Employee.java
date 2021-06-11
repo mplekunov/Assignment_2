@@ -1,33 +1,20 @@
 package ex40.Base;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Employee {
-    private String firstName;
-    private String lastName;
-    private String position;
-    private LocalDate separationDate;
+public final class Employee {
+    private Employee() {}
 
-    public Employee(String firstName, String lastName, String position, LocalDate separationDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.position = position;
-        this.separationDate = separationDate;
-    }
+    public static HashMap<Type, String> convertToMap(String firstName, String lastName, String position, String separationDate) {
+        HashMap<Type, String> employee = new HashMap<>();
 
-    public String getLastName() {
-        return lastName;
-    }
+        employee.put(Type.FIRST_NAME, firstName);
+        employee.put(Type.LAST_NAME, lastName);
+        employee.put(Type.POSITION, position);
+        employee.put(Type.SEPARATION_DATE, separationDate);
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public LocalDate getSeparationDate() {
-        return separationDate;
-    }
-
-    public String getPosition() {
-        return position;
+        return employee;
     }
 }
