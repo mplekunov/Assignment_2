@@ -2,6 +2,7 @@ package ex39.Base;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 public class Main {
@@ -24,15 +25,22 @@ public class Main {
         var wrapper = new Object(){String output = "";};
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        employees.forEach(o -> wrapper.output = wrapper.output.concat(o.getFirstName()).concat(" ").concat(o.getLastName())
-                .concat(getWhitespaces(19 - (o.getFirstName().length() + o.getLastName().length()))).concat("|")
-                .concat(o.getPosition()).concat(getWhitespaces(19 - o.getPosition().length())).concat("|")
-                        .concat(o.getSeparationDate() != null ? sdf.format(o.getSeparationDate()) : "")
-                        .concat(getWhitespaces(20 - (o.getSeparationDate() != null ? o.getSeparationDate().toString().length() : 0)))
-                        .concat("\n"));
+        employees.forEach(o -> {
+            String spacesName = getWhitespaces(19 -(o.getFirstName().length() + o.getLastName().length()));
+
+            String spacesPosition = getWhitespaces(19 - (o.getPosition().length()));
+
+            String spacesSeparationDate = getWhitespaces(19 -
+                    (o.getSeparationDate() != null ? sdf.format(o.getSeparationDate()).length() : 0));
+
+            wrapper.output = wrapper.output.concat(String.format("%s %s%s|%s%s|%s%s\n",
+                    o.getFirstName(), o.getLastName(),spacesName,
+                    o.getPosition(), spacesPosition,
+                    o.getSeparationDate() != null ? sdf.format(o.getSeparationDate()) : "", spacesSeparationDate));
+        });
 
         System.out.println("Name                |Position           |Separation Date\n" +
-                "--------------------|-------------------|----------------\n" + wrapper.output);
+                           "--------------------|-------------------|----------------\n" + wrapper.output);
     }
 
     private static String getWhitespaces(int length) {
