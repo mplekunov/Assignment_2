@@ -1,9 +1,9 @@
 package ex40.Base;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class EmployeeDatabase {
@@ -41,23 +41,46 @@ public class EmployeeDatabase {
 //
 //    }
 
+    private Map<String, Employee> toMap(Type type) {
+        return switch (type) {
+            case LAST_NAME -> employees.stream().collect(Collectors.toMap(Employee::getLastName, Function.identity()));
+
+            case FIRST_NAME -> employees.stream().collect(Collectors.toMap(Employee::getFirstName, Function.identity()));
+
+            case POSITION -> employees.stream().collect(Collectors.toMap(Employee::getPosition, Function.identity()));
+
+            default -> throw new IllegalStateException("Unexpected value: " + type);
+        };
+    }
+
+    private Map<LocalDate, Employee> toMapLocalDate() {
+        return employees.stream().collect(Collectors.toMap(Employee::getSeparationDate, Function.identity(),
+                (address1, address2) -> address1));
+        //I have multiple values with NULL Key, therefore Duplicate Key exception may occur
+        //Merge Function fixes the issue
+    }
+
+
     public List<Employee> findByLastName(String name) {
-        return employees.stream()
-                .filter(o -> o.getLastName().contains(name))
+        return toMap(Type.LAST_NAME).entrySet().stream()
+                .filter(o -> o.getKey().contains(name))
+                .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
     }
 
     public List<Employee> findByPosition(String position) {
-        return employees.stream()
-                .filter(o -> o.getPosition().contains(position))
+        return toMap(Type.POSITION).entrySet().stream()
+                .filter(o -> o.getKey().contains(position))
+                .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
     }
 
     public List<Employee> findByDate() {
         LocalDate now = LocalDate.now().minusMonths(6);
 
-        return employees.stream()
-                .filter(o -> o.getSeparationDate() != null && (now.isAfter(o.getSeparationDate()) || now.isEqual(o.getSeparationDate())))
+        return toMapLocalDate().entrySet().stream()
+                .filter(o -> o.getKey() != null && (now.isAfter(o.getKey()) || now.isEqual(o.getKey())))
+                .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
     }
 
