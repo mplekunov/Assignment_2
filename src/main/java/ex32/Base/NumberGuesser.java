@@ -11,12 +11,16 @@ import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class NumberGuesser {
-    private DifficultyLevel difficultyLevel;
+    private final DifficultyLevel difficultyLevel;
     private int guessCounter;
 
     public NumberGuesser(int difficultyLevel) {
         this.difficultyLevel = DifficultyLevel.fromInteger(difficultyLevel);
         this.guessCounter = 0;
+    }
+
+    public static int getRandomNumber(int minNum, int maxNum) {
+        return ThreadLocalRandom.current().nextInt(1,maxNum + 1);
     }
 
     public void startGame() {
@@ -29,7 +33,7 @@ public class NumberGuesser {
             case THIRD_EASIEST -> maxNum = 1000;
         }
 
-        int randNum = ThreadLocalRandom.current().nextInt(1,maxNum + 1);
+        int randNum = getRandomNumber(1, maxNum);
         int guess = 0;
 
         System.out.print("I have my number. What's your guess? ");
@@ -55,7 +59,6 @@ public class NumberGuesser {
             else
                 System.out.println("You got it in " + guessCounter + " guesses!\n" + evaluateGuesses());
         }
-
     }
 
     private String evaluateGuesses() {

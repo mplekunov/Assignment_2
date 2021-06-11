@@ -17,7 +17,7 @@ public class Main {
                 System.out.print("Enter the difficulty level (1, 2, or 3): ");
 
                 try {
-                    difficultyLevel = Input.readInteger(System.in);
+                    difficultyLevel = Input.readInteger();
                 } catch (NumberFormatException nfe) {
                     System.out.print(nfe.getMessage());
                     continue;
@@ -31,7 +31,7 @@ public class Main {
 
             System.out.print("Do you wish to play again (Y/N)? ");
 
-            if (Input.readString(System.in).equalsIgnoreCase("n"))
+            if (Input.readString().equalsIgnoreCase("n"))
                 break;
         }
     }
