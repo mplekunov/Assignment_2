@@ -13,7 +13,7 @@ public class Main {
             double rateOfReturn, result;
 
             try {
-                rateOfReturn =  Input.readDouble(System.in);
+                rateOfReturn =  Input.readDouble();
                 result = Investment.calculateTimeRequiredForDoublingInvestment(rateOfReturn);
             } catch (NumberFormatException | ArithmeticException e)
             {

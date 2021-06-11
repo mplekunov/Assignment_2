@@ -9,7 +9,7 @@ public final class Investment {
     private Investment() {}
 
     public static double calculateTimeRequiredForDoublingInvestment(double rateOfReturn)
-            throws ArithmeticException, NumberFormatException {
+            throws ArithmeticException {
         try {
             return rateOfReturn == 0 ? 72 / (int)rateOfReturn : 72 / rateOfReturn;
         } catch (ArithmeticException e ) {

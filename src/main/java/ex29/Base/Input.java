@@ -10,6 +10,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
     private Input(){}
 
     public static double readDoubleRoundedToTwoDecimalPlaces(InputStream inputStream) {
@@ -17,10 +18,10 @@ public final class Input {
                 .format(Double.parseDouble(new Scanner(inputStream).nextLine())));
     }
 
-    public static double readDouble(InputStream inputStream)
+    public static double readDouble()
             throws NumberFormatException {
         try {
-            return Double.parseDouble(new Scanner(inputStream).nextLine());
+            return Double.parseDouble(scanner.nextLine());
         } catch (NumberFormatException nfe) {
             throw new NumberFormatException("Only Numeric values are allowed.\n");
         }
