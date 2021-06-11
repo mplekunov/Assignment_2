@@ -7,6 +7,7 @@ package ex30.Base;
 
 public class Main {
     public static void main(String[] args) {
+
         MultiplicationTable.printTable(1, 12);
     }
 }
