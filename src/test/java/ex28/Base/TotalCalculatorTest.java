@@ -11,50 +11,31 @@ import org.junit.jupiter.api.*;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TotalCalculatorTest {
-    private final InputStream stdInputStream = System.in;
+    @Test
+    @DisplayName("2 + 2 + 2 + 2 = 8")
+    void calculateTotal_Returns_Correct_Values() {
+        List<Double> numbers = new ArrayList<>();
+        numbers.add(2.0);
+        numbers.add(2.0);
+        numbers.add(2.0);
+        numbers.add(2.0);
 
-    private void getInput(@NotNull String input) {
-       System.setIn(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
-    }
-
-    @AfterEach
-    public void tearDown() {
-        System.setIn(stdInputStream);
+        double total = TotalCalculator.calculateTotal(numbers);
+        assertEquals(8, total);
     }
 
     @Test
-    @DisplayName("calculateTotal asks for the correct number of numbers")
-    void calculateTotal_Read_Specific_Number_Of_Inputs() {
-        //From 3 inputs, only two should be used in calculation
-        getInput("1\n" +
-                "2\n" +
-                "3\n");
-
-        double total = TotalCalculator.calculateTotal(2, "");
-        assertEquals(3, total);
-    }
-
-    @Test
-    @DisplayName("calculateTotal ignores non-numeric values according to constraints")
-    void calculateTotal_Ignore_Non_Numeric_Values() {
-        //inputs
-        getInput("1\n");
-
-        double total = TotalCalculator.calculateTotal(1, "");
-        assertEquals(1, total);
-    }
-
-    @Test
-    @DisplayName("calculateTotal gives correct output")
-    void calculateTotal_Returns_Correct_Calculation() {
-        //inputs
-        getInput("1");
-
-        double total = TotalCalculator.calculateTotal(1, "");
-        assertEquals(15, total);
+    @DisplayName("readInput ignores non-numeric values according to constraints")
+    void readInput_Ignores_Non_Numeric_Values() {
+        InputStream inputStream = new ByteArrayInputStream(("@\n").getBytes());
+        assertNull(Main.readInput(inputStream));
     }
 }

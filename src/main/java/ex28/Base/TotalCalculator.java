@@ -6,22 +6,16 @@
 package ex28.Base;
 
 import java.io.InputStream;
+import java.util.List;
 
 public final class TotalCalculator {
-    private static final InputStream inputStream = System.in;
     private TotalCalculator(){ }
 
-    public static double calculateTotal(int numQuantity, String promptToUser) {
-        double total = 0;
-        for (int i = 0; i < numQuantity; i++) {
-            System.out.print(promptToUser);
-            try {
-                total += Input.readDouble(inputStream);
-            } catch (NumberFormatException nfe) {
-                //ignore silently
-            }
-        }
+    public static double calculateTotal(List<Double> numbers) {
+        var wrapper = new Object() {double total = 0;};
 
-        return total;
+        numbers.forEach(o -> wrapper.total += o);
+
+        return wrapper.total;
     }
 }
