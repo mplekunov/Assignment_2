@@ -1,10 +1,7 @@
 package ex40.Base;
 
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +16,9 @@ public class Main {
 
         EmployeeDatabase database = new EmployeeDatabase(employees);
 
-        printOutput(database.sortBy(Type.LAST_NAME));
+        String input = readInput();
+
+        printOutput(database.findBy(Type.LAST_NAME, input));
     }
 
     public static void printOutput(List<HashMap<Type, String>> employees) {
@@ -32,7 +31,13 @@ public class Main {
                     o.get(Type.SEPARATION_DATE)));
         });
 
-        System.out.println("Name                |Position            |Separation Date\n" +
+        System.out.println("\nResults:\n\n" +
+                           "Name                |Position            |Separation Date\n" +
                            "--------------------|--------------------|--------------------\n" + wrapper.output);
+    }
+
+    public static String readInput() {
+        System.out.print("Enter a search string: ");
+        return new Scanner(System.in).nextLine();
     }
 }
