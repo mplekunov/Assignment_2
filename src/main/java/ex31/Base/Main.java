@@ -20,7 +20,7 @@ public class Main {
         while (true) {
             try {
                 System.out.print(promptToUser);
-                num = Input.readInteger(System.in);
+                num = Input.readInteger();
             } catch (NumberFormatException nfe) {
                 System.out.print(nfe.getMessage());
                 continue;

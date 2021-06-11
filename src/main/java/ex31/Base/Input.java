@@ -11,25 +11,26 @@ import java.util.Scanner;
 
 public final class Input {
     private static final String NUMBER_FORMAT_EXCEPTION_MSG = "Only Numeric values are allowed.\n";
+    private static final Scanner scanner = new Scanner(System.in);
     private Input(){}
 
-    public static double readDoubleRoundedToTwoDecimalPlaces(InputStream inputStream) {
+    public static double readDoubleRoundedToTwoDecimalPlaces() {
         return Double.parseDouble(new DecimalFormat("#.##")
-                .format(Double.parseDouble(new Scanner(inputStream).nextLine())));
+                .format(Double.parseDouble(scanner.nextLine())));
     }
 
-    public static double readDouble(InputStream inputStream)
+    public static double readDouble()
             throws NumberFormatException {
         try {
-            return Double.parseDouble(new Scanner(inputStream).nextLine());
+            return Double.parseDouble(scanner.nextLine());
         } catch (NumberFormatException nfe) {
             throw new NumberFormatException(NUMBER_FORMAT_EXCEPTION_MSG);
         }
     }
 
-    public static int readInteger(InputStream inputStream) {
+    public static int readInteger() {
         try {
-            return Integer.parseInt(new Scanner(inputStream).nextLine());
+            return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException nfe) {
             throw new NumberFormatException(NUMBER_FORMAT_EXCEPTION_MSG);
         }

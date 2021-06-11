@@ -37,7 +37,7 @@ public class NumberGuesser {
             guessCounter++;
 
             try {
-                guess = Input.readInteger(System.in);
+                guess = Input.readInteger();
             } catch (NumberFormatException nfe) {
                 System.out.println(nfe.getMessage().concat("Your answer counts as a wrong guess!"));
                 continue;
