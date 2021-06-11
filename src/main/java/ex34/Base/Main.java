@@ -43,7 +43,7 @@ public class Main {
     public static Employee readInput()
             throws IndexOutOfBoundsException {
         System.out.print("\nEnter an employee name to remove: ");
-        String input = Input.readString(System.in);
+        String input = Input.readString();
 
         return new Employee(input.substring(0, input.indexOf(" ")), input.substring(input.indexOf(" ") + 1));
     }

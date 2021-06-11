@@ -5,6 +5,8 @@
 
 package ex34.Base;
 
+import java.awt.*;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 
@@ -35,9 +37,10 @@ public class EmployeeDatabase {
                 && o.getFirstName().equals(employee.getFirstName())).findFirst().orElseThrow();
     }
 
-    public void removeEmployee(Employee employee) {
-        employees.remove(employee);
+    public boolean removeEmployee(Employee employee) {
+        boolean operationResult = employees.remove(findAnEmployee(employee));
         numOfEmployees = employees.size();
+        return operationResult;
     }
 
     public HashSet<Employee> getEmployees() {
