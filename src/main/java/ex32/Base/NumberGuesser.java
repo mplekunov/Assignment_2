@@ -6,7 +6,6 @@
 package ex32.Base;
 
 import ex31.Base.Input;
-
 import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
