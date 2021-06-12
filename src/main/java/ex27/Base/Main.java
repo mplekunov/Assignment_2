@@ -6,7 +6,6 @@
 package ex27.Base;
 
 import org.javatuples.Pair;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +27,6 @@ public class Main {
 
     public static String readInput(String promptToUser) {
         System.out.print(promptToUser);
-        return new Scanner(System.in).nextLine();
+        return Input.readString();
     }
 }

@@ -8,10 +8,10 @@ package ex27.Base;
 import org.javatuples.Pair;
 
 public class Validation {
-    private String firstName;
-    private String lastName;
-    private String zipCode;
-    private String id;
+    private final String firstName;
+    private final String lastName;
+    private final String zipCode;
+    private final String id;
 
 
     public Validation(String firstName, String lastName, String zipCode, String id) {
