@@ -27,5 +27,5 @@ public final class Input {
         }
     }
 
-    public static int readInteger(InputStream inputStream) {return Integer.parseInt(new Scanner(inputStream).nextLine());}
+    public static int readInteger() {return Integer.parseInt(scanner.nextLine());}
 }
