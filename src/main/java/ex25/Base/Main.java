@@ -5,24 +5,22 @@
 
 package ex25.Base;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         String password = readInput("Enter password that you would like to validate: ");
 
-        output(new Password(password));
+        output(password);
     }
 
     public static String readInput(String promptToUser) {
         System.out.print(promptToUser);
-        return new Scanner(System.in).nextLine();
+        return Input.readString();
     }
 
-    public static void output(Password password) {
-        String output = "The password " + password.getPassword().concat(" is a ");
+    public static void output(String password) {
+        String output = "The password " + password.concat(" is a ");
 
-        switch (password.getStrength()) {
+        switch (PasswordStrengthDetector.passwordValidator(password)) {
             case VERY_WEAK -> output = output.concat("very weak password.");
             case WEAK -> output = output.concat("weak password.");
             case STRONG -> output = output.concat("strong password.");

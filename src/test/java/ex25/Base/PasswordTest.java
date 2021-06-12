@@ -15,28 +15,28 @@ class PasswordTest {
     @Test
     @DisplayName("getStrength() should return very weak")
     void getStrength_Returns_VeryWeak() {
-        assertEquals(PasswordStrength.VERY_WEAK, new Password("12345").getStrength(),
+        assertEquals(PasswordStrength.VERY_WEAK, PasswordStrengthDetector.passwordValidator("12345"),
                 "Only Numbers and less than 8 characters");
     }
 
     @Test
     @DisplayName("getStrength() should return weak")
     void getStrength_Returns_Weak() {
-        assertEquals(PasswordStrength.WEAK, new Password("abcdef").getStrength(),
+        assertEquals(PasswordStrength.WEAK, PasswordStrengthDetector.passwordValidator("abcdef"),
                 "Only letters and less than 8 characters");
     }
 
     @Test
     @DisplayName("getStrength() should return strong")
     void getStrength_Returns_Strong() {
-        assertEquals(PasswordStrength.STRONG, new Password("abc123xyz").getStrength(),
+        assertEquals(PasswordStrength.STRONG, PasswordStrengthDetector.passwordValidator("abc123xyz"),
                 "At least one letter, one number and more than 8 characters");
     }
 
     @Test
     @DisplayName("getStrength() should return very strong")
     void getStrength_Returns_VeryStrong() {
-        assertEquals(PasswordStrength.VERY_STRONG, new Password("1337h@xor!").getStrength(),
+        assertEquals(PasswordStrength.VERY_STRONG, PasswordStrengthDetector.passwordValidator("1337h@xor!"),
                 "At least one letter, one number, one special character and more than 8 characters");
     }
 
