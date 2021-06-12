@@ -1,6 +1,10 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex35.Base;
 
-import ex34.Base.Employee;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,9 +58,10 @@ class ContestTest {
     }
 
     @Test
-    @DisplayName("drawWinner returns Contestant that is in database")
+    @DisplayName("drawWinner returns Contestant that is in database and reduce size of DB by 1")
     void drawWinner() {
         Exception exception = null;
+        int initDBSize = database.getContestantDBSize();
         try {
             database.findContestant(Contest.drawWinner(database));
         } catch (NoSuchElementException nse) {
@@ -64,6 +69,7 @@ class ContestTest {
         }
 
         assertNull(exception);
+        assertEquals(database.getContestantDBSize(), initDBSize - 1);
     }
 
     @ParameterizedTest

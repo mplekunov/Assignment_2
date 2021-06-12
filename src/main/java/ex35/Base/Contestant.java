@@ -8,8 +8,6 @@ package ex35.Base;
 public class Contestant {
     private String name;
 
-    public Contestant() {}
-
     public Contestant(String name) {
         this.name = name;
     }

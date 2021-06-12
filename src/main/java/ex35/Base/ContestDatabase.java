@@ -25,10 +25,6 @@ public class ContestDatabase {
         this.contestants.addAll(contestants);
     }
 
-    public void addContestant(Contestant contestant) {
-        this.contestants.add(contestant);
-    }
-
     public boolean removeContestant(Contestant contestant) {
         return contestants.remove(contestant);
     }
@@ -40,10 +36,6 @@ public class ContestDatabase {
     public Contestant findContestant(Contestant contestant)
             throws NoSuchElementException {
         return contestants.stream().filter(o -> o.equals(contestant)).findFirst().orElseThrow();
-    }
-
-    public ArrayList<Contestant> getContestants() {
-        return contestants;
     }
 
     public int getContestantDBSize() {
