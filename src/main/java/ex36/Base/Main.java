@@ -49,13 +49,13 @@ public class Main {
 
         while (true) {
             System.out.print("Enter a number: ");
-            input = Input.readString(System.in);
+            input = Input.readString();
 
             if (input.equalsIgnoreCase("done"))
                 return null;
             else {
                 try {
-                    return Input.readDouble(input);
+                    return Input.readDouble();
                 } catch (NumberFormatException nfe) {
                     System.out.println("Non numeric values are prohibited!");
                 }

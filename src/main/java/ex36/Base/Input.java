@@ -5,23 +5,18 @@
 
 package ex36.Base;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
     private Input() {}
 
-    public static String readString(InputStream inputStream) {
-        return new Scanner(inputStream).nextLine();
+    public static String readString() {
+        return scanner.nextLine();
     }
 
-    public static double readDouble(String num)
+    public static double readDouble()
             throws NumberFormatException {
-        return Double.parseDouble(num);
-    }
-
-    public static double readDouble(InputStream inputStream)
-            throws NumberFormatException {
-        return readDouble(new Scanner(inputStream).nextLine());
+        return Double.parseDouble(scanner.nextLine());
     }
 }
