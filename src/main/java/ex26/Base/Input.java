@@ -9,16 +9,16 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public final class Input {
-    private static final Scanner in = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private Input(){}
 
     public static double readDoubleRoundedToTwoDecimalPlaces() {
-        return Double.parseDouble(new DecimalFormat("#.##").format(Double.parseDouble(in.nextLine())));
+        return Double.parseDouble(new DecimalFormat("#.##").format(Double.parseDouble(scanner.nextLine())));
     }
 
     public static double readDouble() {
-        return Double.parseDouble(in.nextLine());
+        return Double.parseDouble(scanner.nextLine());
     }
 
-    public static int readInteger() {return Integer.parseInt(in.nextLine());}
+    public static int readInteger() {return Integer.parseInt(scanner.nextLine());}
 }
