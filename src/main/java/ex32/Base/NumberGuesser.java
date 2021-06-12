@@ -36,26 +36,31 @@ public class NumberGuesser {
         int randNum = getRandomNumber(1, maxNum);
         int guess = 0;
 
-        System.out.print("I have my number. What's your guess? ");
+        System.out.print("I have my number. ");
         while (guess != randNum) {
             guessCounter++;
+
+            if (guessCounter == 1)
+                System.out.print("What's your guess? ");
+            else
+                System.out.print("Guess again: ");
 
             try {
                 guess = Input.readInteger();
             } catch (NumberFormatException nfe) {
-                System.out.println(nfe.getMessage().concat("Your answer counts as a wrong guess!"));
+                System.out.println(nfe.getMessage().concat("Your answer counts as a wrong guess! "));
                 continue;
             }
 
             if (!guesses.add(guess)) {
-                System.out.print("You already guessed that number. Your answer counts as a wrong guess!");
+                System.out.print("You already guessed that number. Your answer counts as a wrong guess! ");
                 continue;
             }
 
             if (guess < randNum)
-                System.out.print("Too low. Guess again: ");
+                System.out.print("Too low. ");
             else if (guess > randNum)
-                System.out.print("Too high. Guess again: ");
+                System.out.print("Too high. ");
             else
                 System.out.println("You got it in " + guessCounter + " guesses!\n" + evaluateGuesses());
         }

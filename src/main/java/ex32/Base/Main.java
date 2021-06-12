@@ -7,7 +7,7 @@ package ex32.Base;
 
 public class Main {
     public static void main(String[] args) {
-        while (true) {
+        do {
 
             System.out.println("Let's play Guess the Number!");
 
@@ -31,8 +31,6 @@ public class Main {
 
             System.out.print("Do you wish to play again (Y/N)? ");
 
-            if (Input.readString().equalsIgnoreCase("n"))
-                break;
-        }
+        } while (!Input.readString().equalsIgnoreCase("n"));
     }
 }

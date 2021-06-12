@@ -11,15 +11,12 @@ public enum DifficultyLevel {
     THIRD_EASIEST;
 
     public static DifficultyLevel fromInteger(int difficultyLevel) {
-        switch (difficultyLevel) {
-            case 1:
-                return FIRST_EASIEST;
-            case 2:
-                return SECOND_EASIEST;
-            case 3:
-                return THIRD_EASIEST;
-        }
+        return switch (difficultyLevel) {
+            case 1 -> FIRST_EASIEST;
+            case 2 -> SECOND_EASIEST;
+            case 3 -> THIRD_EASIEST;
+            default -> null;
+        };
 
-        return null;
     }
 }
