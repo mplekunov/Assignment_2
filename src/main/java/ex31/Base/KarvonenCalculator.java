@@ -6,8 +6,8 @@
 package ex31.Base;
 
 public class KarvonenCalculator {
-    private int age;
-    private int restingHR;
+    private final int age;
+    private final int restingHR;
 
     public KarvonenCalculator(int age, int restingHR) {
         this.age = age;
