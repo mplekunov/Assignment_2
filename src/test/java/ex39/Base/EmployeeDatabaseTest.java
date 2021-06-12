@@ -1,13 +1,14 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex39.Base;
 
-import org.hamcrest.collection.IsIterableContainingInRelativeOrder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.hamcrest.collection.IsIterableContainingInOrder;
 
 import java.util.*;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeDatabaseTest {
