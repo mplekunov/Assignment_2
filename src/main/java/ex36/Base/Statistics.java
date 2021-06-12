@@ -5,6 +5,8 @@
 
 package ex36.Base;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class Statistics {
 
         numbers.forEach(o -> wrapper.value += Math.pow(o - mean, 2));
 
-        return Math.sqrt(wrapper.value / numbers.size());
+        return Double.parseDouble(new DecimalFormat("#.##").format(Math.sqrt(wrapper.value / numbers.size())));
     }
 
     public ArrayList<Double> getNumbers() {
