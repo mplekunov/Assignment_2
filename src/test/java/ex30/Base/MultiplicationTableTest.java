@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex30.Base;
 
 import org.junit.jupiter.api.AfterEach;
@@ -5,9 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.annotation.processing.SupportedSourceVersion;
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
