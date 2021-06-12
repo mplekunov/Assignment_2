@@ -1,8 +1,11 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex40.Base;
 
-import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Map;
 
 public final class Employee {
     private Employee() {}
