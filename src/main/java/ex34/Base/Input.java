@@ -5,7 +5,6 @@
 
 package ex34.Base;
 
-import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 

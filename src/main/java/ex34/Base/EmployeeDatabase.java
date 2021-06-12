@@ -5,21 +5,19 @@
 
 package ex34.Base;
 
-import java.awt.*;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class EmployeeDatabase {
-    private HashSet<Employee> employees;
+    private ArrayList<Employee> employees;
     private int numOfEmployees;
 
     private EmployeeDatabase() {
-        this.employees = new HashSet<>();
+        this.employees = new ArrayList<>();
         this.numOfEmployees = 0;
     }
 
-    public EmployeeDatabase(HashSet<Employee> employees) {
+    public EmployeeDatabase(ArrayList<Employee> employees) {
         this();
         this.employees.addAll(employees);
         this.numOfEmployees = this.employees.size();
@@ -43,7 +41,7 @@ public class EmployeeDatabase {
         return operationResult;
     }
 
-    public HashSet<Employee> getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employees;
     }
 

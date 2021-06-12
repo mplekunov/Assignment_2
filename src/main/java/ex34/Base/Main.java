@@ -5,12 +5,12 @@
 
 package ex34.Base;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args) {
-        HashSet<Employee> employees = new HashSet<>();
+        ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("John", "Smith"));
         employees.add(new Employee("Jackie", "Jackson"));
         employees.add(new Employee("Chris" ,"Jones"));

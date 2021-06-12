@@ -1,9 +1,15 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex34.Base;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
@@ -12,15 +18,16 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeDatabaseTest {
-    private final static HashSet<Employee> employeeCollection = new HashSet<>();
     private final EmployeeDatabase employeeDatabase;
 
     public EmployeeDatabaseTest() {
+        ArrayList<Employee> employeeCollection = new ArrayList<>();
         employeeCollection.add(new Employee("John", "Smith"));
         employeeCollection.add(new Employee("Jackie", "Jackson"));
         employeeCollection.add(new Employee("Chris" ,"Jones"));
         employeeCollection.add(new Employee("Amanda", "Cullen"));
         employeeCollection.add(new Employee("Jeremy", "Goodwin"));
+
         employeeDatabase = new EmployeeDatabase(employeeCollection);
     }
 
