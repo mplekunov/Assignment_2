@@ -65,6 +65,4 @@ public class PasswordGenerator {
     private IntStream generateNumberStream(int size, int starting_index, int ending_index) {
         return ThreadLocalRandom.current().ints(size, starting_index, ending_index);
     }
-
-
 }

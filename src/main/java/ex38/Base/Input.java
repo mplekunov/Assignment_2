@@ -4,19 +4,16 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
+
     private Input() {}
 
-    public static String readString(InputStream inputStream) {
-        return new Scanner(inputStream).nextLine();
+    public static String readString() {
+        return scanner.nextLine();
     }
 
-    public static double readDouble(String input)
+    public static double readDouble()
             throws NumberFormatException {
-        return Double.parseDouble(input);
-    }
-
-    public static double readDouble(InputStream inputStream)
-            throws NumberFormatException {
-        return readDouble(readString(inputStream));
+        return Double.parseDouble(scanner.nextLine());
     }
 }

@@ -13,7 +13,7 @@ public class Main {
 
     public static List<Double> fillNumberCollection() {
         System.out.print("Enter a list of numbers, separated by spaces: ");
-        String input = Input.readString(System.in);
+        String input = Input.readString();
 
         return Arrays.stream(input.split(" ")).map(Double::valueOf).collect(Collectors.toList());
     }
