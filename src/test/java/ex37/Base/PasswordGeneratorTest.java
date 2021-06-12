@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 2 Solution
+ *  Copyright 2021 Mikhail Plekunov
+ */
+
 package ex37.Base;
 
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +15,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordGeneratorTest {
-    private static final int NUMBER_OF_TESTS = 1000000;
+    private static final int NUMBER_OF_TESTS = 10000;
+
     enum Identifiers {
         NUMBER_QTY,
         SPECIAL_CHAR_QTY,
@@ -48,6 +54,8 @@ class PasswordGeneratorTest {
             int numberQTY = passwordIdentifiers.get(i).get(Identifiers.NUMBER_QTY);
             int charQTY = passwordIdentifiers.get(i).get(Identifiers.SPECIAL_CHAR_QTY);
             int length = passwordIdentifiers.get(i).get(Identifiers.LENGTH);
+
+            System.out.println(passwordToTest); //for visual testing
 
             assertTrue(passwordToTest.matches(getRegex(numberQTY, charQTY, length)));
         }

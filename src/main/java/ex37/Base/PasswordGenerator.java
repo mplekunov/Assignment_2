@@ -18,18 +18,14 @@ public class PasswordGenerator {
     private final static List<Character> specialCharacters = List.of('!', '?', '#', '$', '%', '^', '&' , '*');
     private final static int LETTER_STARTING_INDEX = 97;
     private final static int LETTER_ENDING_INDEX = 122;
-    private final static int LETTER_LENGTH_OFFSET = 3;
     private final static int NUMBER_STARTING_INDEX = 48;
     private final static int NUMBER_ENDING_INDEX = 57;
 
     private final int numberQTY;
     private final int letterQTY;
     private final int specialCharQTY;
-    private final int length;
 
     public PasswordGenerator(int numberQTY, int specialCharQTY, int length) {
-        int letterQTY1;
-        this.length = length;
         this.numberQTY = numberQTY;
         this.specialCharQTY = specialCharQTY;
         int letterQTYTemp = numberQTY + specialCharQTY;

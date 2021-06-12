@@ -6,7 +6,7 @@
 package ex37.Base;
 
 public class Password {
-    private String password;
+    private final String password;
 
     public Password(String password) {
         this.password = password;
