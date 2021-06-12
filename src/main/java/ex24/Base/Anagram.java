@@ -6,16 +6,16 @@
 package ex24.Base;
 
 import java.util.Arrays;
-import java.util.Locale;
 
 public class Anagram {
-    private char[] firstString;
-    private char[] secondString;
+    private final char[] firstString;
+    private final char[] secondString;
 
     public Anagram(String firstString, String secondString) {
-        this.firstString = firstString.toLowerCase(Locale.ROOT).toCharArray();
-        this.secondString = secondString.toLowerCase(Locale.ROOT).toCharArray();
+        this.firstString = firstString.toLowerCase().toCharArray();
+        this.secondString = secondString.toLowerCase().toCharArray();
     }
+
     public boolean isAnagram() {
         if (firstString.length != secondString.length)
             return false;

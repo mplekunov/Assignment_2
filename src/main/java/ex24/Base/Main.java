@@ -6,7 +6,6 @@
 package ex24.Base;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,12 +19,12 @@ public class Main {
 
     public static String readInput(String promptToUser) {
         System.out.println(promptToUser);
-        return new Scanner(System.in).nextLine();
+        return Input.readString();
     }
 
     public static void processAndOutput(Anagram anagram) {
-        String output =  ("\"").concat(Arrays.toString(anagram.getFirstString()))
-                .concat("\" and \"").concat(Arrays.toString(anagram.getSecondString())).concat("\"");
+        String output =  ("\"").concat(Arrays.toString(anagram.getFirstString())).concat("\" and ")
+                  .concat("\"").concat(Arrays.toString(anagram.getSecondString())).concat("\"");
 
         System.out.print(anagram.isAnagram() ?
                 output.concat(" are anagrams.") : output.concat(" aren't anagrams."));
