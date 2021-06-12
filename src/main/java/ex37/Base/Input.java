@@ -4,19 +4,15 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
     private Input() {}
 
-    public static String readString(InputStream inputStream) {
-        return new Scanner(inputStream).nextLine();
+    public static String readString() {
+        return scanner.nextLine();
     }
 
-    public static int readInteger(String input)
+    public static int readInteger()
             throws NumberFormatException {
-        return Integer.parseInt(input);
-    }
-
-    public static int readInteger(InputStream inputStream)
-            throws NumberFormatException {
-        return readInteger(readString(inputStream));
+        return Integer.parseInt(scanner.nextLine());
     }
 }

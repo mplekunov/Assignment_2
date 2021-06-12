@@ -23,7 +23,7 @@ public class Main {
             System.out.print(promptToUser);
 
             try {
-                number = Input.readInteger(System.in);
+                number = Input.readInteger();
             } catch (NumberFormatException nfe) {
                 System.out.println("Only numeric values are allowed!");
                 continue;

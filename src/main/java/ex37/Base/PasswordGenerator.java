@@ -22,8 +22,8 @@ public class PasswordGenerator {
     private final static int NUMBER_STARTING_INDEX = 48;
     private final static int NUMBER_ENDING_INDEX = 57;
 
-    private int numberQTY;
-    private int letterQTY;
+    private final int numberQTY;
+    private final int letterQTY;
     private final int specialCharQTY;
     private final int length;
 
@@ -36,13 +36,14 @@ public class PasswordGenerator {
 
     public Password generatePassword() {
         List<Character> specialCharacters = new ArrayList<>();
+
         generateNumberStream(specialCharQTY, 0, PasswordGenerator.specialCharacters.size())
                 .forEach(o -> specialCharacters.add(PasswordGenerator.specialCharacters.get(o)));
 
         List<Character> numbers = generateCharacters(numberQTY, NUMBER_STARTING_INDEX, NUMBER_ENDING_INDEX);
 
         List<Character> letters = generateCharacters(ThreadLocalRandom.current()
-                .nextInt(letterQTY, (length - (numberQTY + specialCharQTY)) + LETTER_LENGTH_OFFSET), LETTER_STARTING_INDEX, LETTER_ENDING_INDEX);
+                .nextInt(letterQTY, letterQTY + LETTER_LENGTH_OFFSET), LETTER_STARTING_INDEX, LETTER_ENDING_INDEX);
 
         List<Character> password = Stream.of(specialCharacters, numbers, letters).flatMap(Collection::stream).collect(Collectors.toList());
         Collections.shuffle(password);
