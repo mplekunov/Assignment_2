@@ -5,39 +5,46 @@
 
 package ex28.Base;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
-
-        double total = TotalCalculator.calculateTotal(fillNumberCollection(System.in));
+        double total = TotalCalculator.calculateTotal(fillNumberCollection());
 
         System.out.print("The total is " + (total == (long)total ? String.format("%d", (long)total) : String.format("%s", total)));
     }
 
-    public static List<Double> fillNumberCollection(InputStream inputStream) {
+    public static List<Double> fillNumberCollection() {
         List<Double> numbers = new ArrayList<>();
+        int numberQty;
 
         System.out.print("Enter how many numbers you want to add: ");
-        int numberQty = Input.readInteger(inputStream);
+
+        while(true) {
+            try {
+                numberQty = (int)Input.readDouble();
+            } catch (NumberFormatException nfe) {
+                System.out.println("Only numeric values are allowed!");
+                continue;
+            }
+            break;
+        }
 
         for (int i = 0; i < numberQty; i++) {
             System.out.print("Enter a number: ");
-            numbers.add(readInput(inputStream));
+            double number;
+
+            try {
+                number = Input.readDouble();
+            } catch (NumberFormatException nfe) {
+                //ignore silently
+                continue;
+            }
+
+            numbers.add(number);
         }
 
         return numbers;
-    }
-
-    public static Double readInput(InputStream inputStream) {
-        try {
-            return (Input.readDouble(inputStream));
-        } catch (NumberFormatException nfe) {
-            //ignore silently
-        }
-        return null;
     }
 }

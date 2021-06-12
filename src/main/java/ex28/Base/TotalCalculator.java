@@ -5,7 +5,6 @@
 
 package ex28.Base;
 
-import java.io.InputStream;
 import java.util.List;
 
 public final class TotalCalculator {

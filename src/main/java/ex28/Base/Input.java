@@ -5,21 +5,21 @@
 
 package ex28.Base;
 
-import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
     private Input(){}
 
-    public static double readDoubleRoundedToTwoDecimalPlaces(InputStream inputStream) {
+    public static double readDoubleRoundedToTwoDecimalPlaces() {
         return Double.parseDouble(new DecimalFormat("#.##")
-                .format(Double.parseDouble(new Scanner(inputStream).nextLine())));
+                .format(Double.parseDouble(scanner.nextLine())));
     }
 
-    public static double readDouble(InputStream inputStream) throws NumberFormatException {
-        return Double.parseDouble(new Scanner(inputStream).nextLine());
+    public static double readDouble() throws NumberFormatException {
+        return Double.parseDouble(scanner.nextLine());
     }
 
-    public static int readInteger(InputStream inputStream) {return Integer.parseInt(new Scanner(inputStream).nextLine());}
+    public static int readInteger() {return Integer.parseInt(scanner.nextLine());}
 }
