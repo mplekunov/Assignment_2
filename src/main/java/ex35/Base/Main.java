@@ -32,7 +32,7 @@ public class Main {
     }
 
     public static Contestant readInput() {
-        String name = Input.readString(System.in);
+        String name = Input.readString();
         return name.isEmpty() ? null : new Contestant(name);
     }
 }

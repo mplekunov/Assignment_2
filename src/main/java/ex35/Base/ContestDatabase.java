@@ -29,8 +29,8 @@ public class ContestDatabase {
         this.contestants.add(contestant);
     }
 
-    public void removeContestant(Contestant contestant) {
-        this.contestants.remove(contestant);
+    public boolean removeContestant(Contestant contestant) {
+        return contestants.remove(contestant);
     }
 
     public Contestant findContestant(int index) {
@@ -39,10 +39,15 @@ public class ContestDatabase {
 
     public Contestant findContestant(Contestant contestant)
             throws NoSuchElementException {
-        return this.contestants.stream().filter(o -> o.getName().equals(contestant.getName())).findFirst().orElseThrow();
+        return contestants.stream().filter(o -> o.equals(contestant)).findFirst().orElseThrow();
+    }
+
+    public ArrayList<Contestant> getContestants() {
+        return contestants;
     }
 
     public int getContestantDBSize() {
         return contestants.size();
     }
+
 }

@@ -21,4 +21,15 @@ public class Contestant {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof Contestant contestant))
+            return false;
+
+        return this.getName().equals(contestant.getName());
+    }
 }

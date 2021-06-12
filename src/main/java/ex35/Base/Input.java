@@ -10,10 +10,11 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public final class Input {
+    private final static Scanner scanner = new Scanner(System.in);
     private Input() {}
 
-    public static String readString(InputStream inputStream)
+    public static String readString()
             throws NoSuchElementException {
-        return new Scanner(inputStream).nextLine();
+        return scanner.nextLine();
     }
 }
